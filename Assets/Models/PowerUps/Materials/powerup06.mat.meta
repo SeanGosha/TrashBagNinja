@@ -1,15 +1,8 @@
 fileFormatVersion: 2
-guid: 5617c7f9d7d09114798703c046ebc7a9
-labels:
-- 3D
-- Power-up
-- Arcade
-- 8-bit
-- Retro
-- Icon
+guid: 61e818aec7bf2c442a220dfa1413e538
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 0
+  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.69148904, g: 0.2852715, b: 0.13920984, a: 1}
+  m_IndirectSpecularColor: {r: 0.6918458, g: 0.28275156, b: 0.1380949, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1816,12 +1816,12 @@ PrefabInstance:
     - target: {fileID: 224182559113387586, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 192
+      value: 179.26974
       objectReference: {fileID: 0}
     - target: {fileID: 224182559113387586, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 192
+      value: 179.26974
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
@@ -1861,12 +1861,12 @@ PrefabInstance:
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 192
+      value: 179.26974
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 192
+      value: 179.26974
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
@@ -1911,12 +1911,12 @@ PrefabInstance:
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1668.48
+      value: 1673.6995
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 188.16
+      value: 175.68436
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
@@ -3701,12 +3701,12 @@ PrefabInstance:
     - target: {fileID: 224182559113387586, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 192
+      value: 179.26974
       objectReference: {fileID: 0}
     - target: {fileID: 224182559113387586, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 192
+      value: 179.26974
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
@@ -3746,12 +3746,12 @@ PrefabInstance:
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 192
+      value: 179.26974
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 192
+      value: 179.26974
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
@@ -3796,12 +3796,12 @@ PrefabInstance:
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1673.48
+      value: 1678.6995
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 193.16
+      value: 180.68436
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
@@ -7067,11 +7067,12 @@ MonoBehaviour:
   currentLane: 1
   transitionDuration: 0.2
   isMoving: 0
+  isAttacking: 0
+  gameActive: 0
+  speedBoost: 0
   score: 0
   totalTrashbags: 0
   trashBagThrower: {fileID: 1919889694}
-  isAttacking: 0
-  gameActive: 0
 --- !u!54 &1848126734
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7487,10 +7488,10 @@ MonoBehaviour:
   - {fileID: 1516406431}
   trashBagPrefab: {fileID: 8036738241472577452, guid: 87ca307b214a9494f960dca3c68b4a98,
     type: 3}
-  throwInterval: 2
-  randomSpawnPoint: 0
   countdown: {fileID: 98483808}
   playerController: {fileID: 1848126731}
+  throwInterval: 2
+  randomSpawnPoint: 0
 --- !u!114 &1919889695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7505,12 +7506,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trashBagThrower: {fileID: 1919889694}
   powerUpPrefabs:
-  - {fileID: 100000, guid: 6f6fd094df726c74c814dd4579f18a52, type: 3}
-  - {fileID: 100000, guid: 307270e65cf870646864260e735fc051, type: 3}
-  - {fileID: 100000, guid: c1e6b6b1fb2878845a5be6f9781f927e, type: 3}
-  - {fileID: 100000, guid: 46716408314185f408c256a9abd8a4a1, type: 3}
-  throwInterval: 20
+  - {fileID: 100000, guid: de0eb6df55a465c4999f62841e7201f2, type: 3}
+  - {fileID: 100000, guid: de0eb6df55a465c4999f62841e7201f2, type: 3}
+  - {fileID: 100000, guid: cd9ef2ad4937abe48b2f01917a40aa9c, type: 3}
+  - {fileID: 100000, guid: cd9ef2ad4937abe48b2f01917a40aa9c, type: 3}
   countdown: {fileID: 98483808}
+  throwInterval: 20
 --- !u!1 &1931154889
 GameObject:
   m_ObjectHideFlags: 0
