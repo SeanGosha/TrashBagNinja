@@ -14,5 +14,13 @@ public class PowerUpEffect : MonoBehaviour
                 other.gameObject.GetComponent<PlayerHealth>().GainHealth();
             }
         }
+        else if(this.gameObject.name == "SpeedPowerUp(Clone)")
+        {
+            if(other.gameObject.CompareTag("Player"))
+            {
+                // set the speed boost flag to true
+                other.gameObject.GetComponent<PlayerController>().speedBoost = true;
+            }
+        }
     }
 }

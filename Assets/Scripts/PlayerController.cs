@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool isAttacking = false; // Flag to track if the player is currently attacking
     public bool gameActive = false; // Flag to track if movement is enabled
+    public bool speedBoost = false; // Flag to track if the player has a speed boost
+    private bool speedBoostActive = false; // Flag to track if the speed boost is active
 
     // Score
     public int score = 0; // Player score
@@ -49,8 +51,20 @@ public class PlayerController : MonoBehaviour
     {
         if(gameActive)
         {
-            // Update the transition duration
-            transitionDuration = Mathf.Clamp(0.2f * Mathf.Exp(-totalTrashbags / 275f), 0.13f, 0.2f);
+            if(!speedBoost)
+            {
+                // Update the transition duration
+                transitionDuration = Mathf.Clamp(0.2f * Mathf.Exp(-totalTrashbags / 275f), 0.13f, 0.2f);
+            }
+            else
+            {
+                if(!speedBoostActive)
+                {
+                    speedBoostActive = true;
+                    StartCoroutine(SpeedBoost());
+                }
+            }
+
             // Keyboard input for testing
             if (Input.GetKeyDown(KeyCode.LeftArrow) && !isMoving)
             {
@@ -121,6 +135,8 @@ public class PlayerController : MonoBehaviour
         // Start the new movement coroutine
         moveCoroutine = StartCoroutine(MoveCoroutine());
 
+        Debug.Log("Transition duration: " + transitionDuration);
+
         // Update the current lane
         currentLane = targetLane;
     }
@@ -182,5 +198,19 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.30f); // Adjust the duration as needed
         animator.SetBool("isAttacking", false);
         isAttacking = false;
+    }
+
+    private IEnumerator SpeedBoost()
+    {
+        float previousTransitionDuration = transitionDuration;
+        // Increase the transition duration
+        transitionDuration *= 0.3f;
+        // Wait for the duration
+        yield return new WaitForSeconds(12f);
+        // reset transition duration
+        transitionDuration = Mathf.Clamp(0.2f * Mathf.Exp(-totalTrashbags / 275f), 0.13f, 0.2f);        
+        
+        speedBoost = false;
+        speedBoostActive = false;
     }
 }
