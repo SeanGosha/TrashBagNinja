@@ -135,8 +135,6 @@ public class PlayerController : MonoBehaviour
         // Start the new movement coroutine
         moveCoroutine = StartCoroutine(MoveCoroutine());
 
-        Debug.Log("Transition duration: " + transitionDuration);
-
         // Update the current lane
         currentLane = targetLane;
     }
@@ -206,7 +204,7 @@ public class PlayerController : MonoBehaviour
         // Increase the transition duration
         transitionDuration *= 0.3f;
         // Wait for the duration
-        yield return new WaitForSeconds(12f);
+        yield return new WaitForSeconds(8f);
         // reset transition duration
         transitionDuration = Mathf.Clamp(0.2f * Mathf.Exp(-totalTrashbags / 275f), 0.13f, 0.2f);        
         

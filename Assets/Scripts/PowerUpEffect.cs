@@ -22,5 +22,13 @@ public class PowerUpEffect : MonoBehaviour
                 other.gameObject.GetComponent<PlayerController>().speedBoost = true;
             }
         }
+        else if(this.gameObject.name == "ShieldPowerUp(Clone)")
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                // set the shield flag to true
+                other.gameObject.GetComponent<PlayerHealth>().shield = true;
+            }
+        }
     }
 }

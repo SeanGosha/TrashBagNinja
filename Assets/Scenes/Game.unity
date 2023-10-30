@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.6918458, g: 0.28275156, b: 0.1380949, a: 1}
+  m_IndirectSpecularColor: {r: 0.69148904, g: 0.2852715, b: 0.13920984, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1816,12 +1816,12 @@ PrefabInstance:
     - target: {fileID: 224182559113387586, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 179.26974
+      value: 177.44077
       objectReference: {fileID: 0}
     - target: {fileID: 224182559113387586, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 179.26974
+      value: 177.44077
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
@@ -1861,12 +1861,12 @@ PrefabInstance:
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 179.26974
+      value: 177.44077
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 179.26974
+      value: 177.44077
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
@@ -1911,12 +1911,12 @@ PrefabInstance:
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1673.6995
+      value: 1674.4492
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 175.68436
+      value: 173.89194
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
@@ -3701,12 +3701,12 @@ PrefabInstance:
     - target: {fileID: 224182559113387586, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 179.26974
+      value: 177.44077
       objectReference: {fileID: 0}
     - target: {fileID: 224182559113387586, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 179.26974
+      value: 177.44077
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
@@ -3746,12 +3746,12 @@ PrefabInstance:
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 179.26974
+      value: 177.44077
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 179.26974
+      value: 177.44077
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
@@ -3796,12 +3796,12 @@ PrefabInstance:
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1678.6995
+      value: 1679.4492
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 180.68436
+      value: 178.89194
       objectReference: {fileID: 0}
     - target: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
         type: 3}
@@ -7137,6 +7137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c839ee42a1e3b5b41bd596e9f13fe7c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shield: 0
   heart1: {fileID: 587415316}
   heart2: {fileID: 1616537812}
   heart3: {fileID: 1523093451}
@@ -7507,8 +7508,7 @@ MonoBehaviour:
   trashBagThrower: {fileID: 1919889694}
   powerUpPrefabs:
   - {fileID: 100000, guid: de0eb6df55a465c4999f62841e7201f2, type: 3}
-  - {fileID: 100000, guid: de0eb6df55a465c4999f62841e7201f2, type: 3}
-  - {fileID: 100000, guid: cd9ef2ad4937abe48b2f01917a40aa9c, type: 3}
+  - {fileID: 100000, guid: b4865d6974712d84ab1c88ac8d9dfe59, type: 3}
   - {fileID: 100000, guid: cd9ef2ad4937abe48b2f01917a40aa9c, type: 3}
   countdown: {fileID: 98483808}
   throwInterval: 20
