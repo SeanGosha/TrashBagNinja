@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.adaptiveperformance.google.android": "1.2.1",
     "com.unity.adaptiveperformance.samsung.android": "5.0.0",
     "com.unity.cinemachine": "2.3.4",
     "com.unity.collab-proxy": "1.17.1",
