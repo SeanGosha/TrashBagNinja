@@ -3761,8 +3761,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c25dde42e7047148b1f796d173d4a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 1848126731}
-  playerHealth: {fileID: 1848126742}
   trashBagExplosionPrefab: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7,
     type: 3}
 --- !u!1 &963194225
@@ -4030,8 +4028,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c25dde42e7047148b1f796d173d4a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 1848126731}
-  playerHealth: {fileID: 1848126742}
   trashBagExplosionPrefab: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7,
     type: 3}
 --- !u!1 &1127866165
@@ -7202,8 +7198,12 @@ MonoBehaviour:
   trashBagThrower: {fileID: 1919889694}
   powerUpPrefabs:
   - {fileID: 100000, guid: f5606a270bef82d428dae71dc8c8027b, type: 3}
+  - {fileID: 100000, guid: de0eb6df55a465c4999f62841e7201f2, type: 3}
+  - {fileID: 100000, guid: b4865d6974712d84ab1c88ac8d9dfe59, type: 3}
+  - {fileID: 100000, guid: cd9ef2ad4937abe48b2f01917a40aa9c, type: 3}
+  - {fileID: 100000, guid: 5b48577db1641f343965bb2c0c4e8e7e, type: 3}
   countdown: {fileID: 98483808}
-  throwInterval: 8
+  throwInterval: 15
 --- !u!1 &1931154889
 GameObject:
   m_ObjectHideFlags: 0
@@ -7997,8 +7997,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c25dde42e7047148b1f796d173d4a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 1848126731}
-  playerHealth: {fileID: 1848126742}
   trashBagExplosionPrefab: {fileID: 104829970813648393, guid: d3015b7eea383f64d8b81f965cc466e7,
     type: 3}
 --- !u!1001 &5962936828648751503
