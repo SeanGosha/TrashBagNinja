@@ -7079,6 +7079,8 @@ MonoBehaviour:
   score: 0
   totalTrashbags: 0
   trashBagThrower: {fileID: 1919889694}
+  speedShader: {fileID: 4800000, guid: 472714a737f49cc47b4da36c86c01b2a, type: 3}
+  playerMesh: {fileID: 1683238692}
 --- !u!54 &1848126734
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -7519,7 +7521,7 @@ MonoBehaviour:
   - {fileID: 100000, guid: b4865d6974712d84ab1c88ac8d9dfe59, type: 3}
   - {fileID: 100000, guid: cd9ef2ad4937abe48b2f01917a40aa9c, type: 3}
   countdown: {fileID: 98483808}
-  throwInterval: 20
+  throwInterval: 18
 --- !u!1 &1931154889
 GameObject:
   m_ObjectHideFlags: 0

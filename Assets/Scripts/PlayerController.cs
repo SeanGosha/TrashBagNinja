@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public bool speedBoost = false; // Flag to track if the player has a speed boost
     private bool speedBoostActive = false; // Flag to track if the speed boost is active
 
+
     // Score
     public int score = 0; // Player score
     public int totalTrashbags = 0; // Total bags thrown
@@ -34,6 +35,8 @@ public class PlayerController : MonoBehaviour
     public TrashBagThrower trashBagThrower; // Reference to the trash bag thrower
 
     private Animator animator;
+    public Shader speedShader; // Reference to the speed shader
+    public SkinnedMeshRenderer playerMesh; // Reference to the player mesh
 
 
     private void Start()
@@ -203,8 +206,23 @@ public class PlayerController : MonoBehaviour
         float previousTransitionDuration = transitionDuration;
         // Increase the transition duration
         transitionDuration *= 0.3f;
+        // Set the speed shader
+        playerMesh.material.shader = speedShader;
+        //Set shader _OutlineColor to yellow
+        playerMesh.material.SetColor("_OutlineColor", new Color(255, 255, 0));
         // Wait for the duration
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(7.2f);
+        // Reset the shader
+        int i = 0;
+        while(i < 4)
+        {
+            playerMesh.material.shader = Shader.Find("Mobile/Diffuse");
+            yield return new WaitForSeconds(.1f);
+            playerMesh.material.shader = speedShader;
+            yield return new WaitForSeconds(.1f);
+            i++;
+        }
+        playerMesh.material.shader = Shader.Find("Mobile/Diffuse");
         // reset transition duration
         transitionDuration = Mathf.Clamp(0.2f * Mathf.Exp(-totalTrashbags / 275f), 0.13f, 0.2f);        
         
