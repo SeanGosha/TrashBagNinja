@@ -6553,6 +6553,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1622382997}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!137 &1683238692 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 1668136734041841861, guid: 50c549939b9529d49b9eae59fc1d0fd3,
+    type: 3}
+  m_PrefabInstance: {fileID: 919310068}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1706229282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7138,6 +7144,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shield: 0
+  shieldShader: {fileID: 4800000, guid: 472714a737f49cc47b4da36c86c01b2a, type: 3}
+  playerMesh: {fileID: 1683238692}
   heart1: {fileID: 587415316}
   heart2: {fileID: 1616537812}
   heart3: {fileID: 1523093451}

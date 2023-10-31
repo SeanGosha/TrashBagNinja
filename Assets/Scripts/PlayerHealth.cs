@@ -11,6 +11,8 @@ public class PlayerHealth : MonoBehaviour
     //shield
     public bool shield = false;
     private bool shieldActive = false;
+    public Shader shieldShader;
+    public SkinnedMeshRenderer playerMesh;
 
     //heart gameobjects
     public GameObject heart1;
@@ -69,7 +71,19 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator ShieldEffect()
     {
         shieldActive = true;
-        yield return new WaitForSeconds(5);
+        playerMesh.material.shader = shieldShader;
+        playerMesh.material.SetColor("_OutlineColor", new Color(195, 0, 143));
+        yield return new WaitForSeconds(5.2f);
+        int i = 0;
+        while (i < 4)
+        {
+            playerMesh.material.shader = Shader.Find("Mobile/Diffuse");
+            yield return new WaitForSeconds(.1f);
+            playerMesh.material.shader = shieldShader;
+            yield return new WaitForSeconds(.1f);
+            i++;
+        }
+        playerMesh.material.shader = Shader.Find("Mobile/Diffuse");
         shieldActive = false;
     }
 
