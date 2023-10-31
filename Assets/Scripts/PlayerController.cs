@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     private GameObject plusOneObject; // Reference to the plus one object
 
     public GameObject plusOnePrefab; // Reference to the plus one prefab
+    private bool plusOneRight = false; // Flag to track if the plus one is on the left side of the player
+    private bool plusOneLeft = false; // Flag to track if the plus one is on the right side of the player
 
 
 
@@ -118,10 +120,12 @@ public class PlayerController : MonoBehaviour
                     {
                         if (fingerDownPos.x - fingerUpPos.x < 0)
                         {
+                            if(!plusOneRight && currentLane != 3)
                             MoveToLane(currentLane + 1);
                         }
                         else
                         {
+                            if(!plusOneLeft && currentLane != 0)
                             MoveToLane(currentLane - 1);
                         }
                     }
@@ -265,8 +269,18 @@ public class PlayerController : MonoBehaviour
         playerMesh.material.SetColor("_OutlineColor", new Color(0, 255, 255));
         // Set the parent to the player
         plusOneObject.transform.SetParent(transform);
-        //set the postition 3 units to the right of the player by x position
-        plusOneObject.transform.position = new Vector3(transform.position.x + 3, transform.position.y, transform.position.z);
+        if(currentLane < 3)
+        {
+            //set the postition 3 units to the right of the player by x position
+            plusOneObject.transform.position = new Vector3(transform.position.x + 3, transform.position.y, transform.position.z);
+            plusOneRight = true;
+        }
+        else
+        {
+            //set the postition 3 units to the left of the player by x position
+            plusOneObject.transform.position = new Vector3(transform.position.x - 3, transform.position.y, transform.position.z);
+            plusOneLeft = true;
+        }
         yield return new WaitForSeconds(7.2f);
         // Reset the shader
         int i = 0;
@@ -281,6 +295,9 @@ public class PlayerController : MonoBehaviour
         playerMesh.material.shader = Shader.Find("Mobile/Diffuse");
         // Destroy the plus one object
         Destroy(plusOneObject);
+        // Reset the flags
+        plusOneLeft = false;
+        plusOneRight = false;
         plusOne = false;
         plusOneActive = false;
     }

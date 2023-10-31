@@ -5,13 +5,19 @@ using UnityEngine;
 public class DestroyTrashbag : MonoBehaviour
 {
     //player controller script
-    public PlayerController playerController;
+    private PlayerController playerController;
     //player health script
-    public PlayerHealth playerHealth;
+    private PlayerHealth playerHealth;
     //explosion prefab
     public GameObject trashBagExplosionPrefab;
     //explosion gameobject
     private GameObject trashBagExplosion;
+
+    private void Start()
+    {
+        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
+        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
