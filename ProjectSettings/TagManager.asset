@@ -10,6 +10,7 @@ TagManager:
   - Environment
   - FxTemporaire
   - Health
+  - TrashBagSpawnPoints
   layers:
   - Default
   - TransparentFX

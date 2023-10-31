@@ -8,16 +8,21 @@ public class DestroyPowerUp : MonoBehaviour
     private Rigidbody powerUpRigidbody;
     //explosion prefab
     public GameObject powerUpExplosionPrefab;
+    //powerup sound
+    public AudioClip powerUpSound;
+    private AudioSource powerUpAudioSource;
 
     private void Start() 
     {
         powerUpRigidbody = GetComponent<Rigidbody>();
+        powerUpAudioSource = GameObject.FindWithTag("TrashBagSpawnPoints").GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter(Collider other) 
     {
         if(other.gameObject.CompareTag("Player"))
         {
+            powerUpAudioSource.PlayOneShot(powerUpSound);
             DestroyPowerUpObject();
         } 
         else if(other.gameObject.CompareTag("Environment"))

@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
     private bool plusOneRight = false; // Flag to track if the plus one is on the left side of the player
     private bool plusOneLeft = false; // Flag to track if the plus one is on the right side of the player
 
+    //sounds
+    public AudioSource woosh;
+
 
 
 
@@ -234,6 +237,8 @@ public class PlayerController : MonoBehaviour
             // Set the moving flag to true
             isMoving = true;
             animator.SetBool("isMoving", true);
+            // Play woosh sound
+            woosh.Play();
         }
 
         // Calculate the starting position and time

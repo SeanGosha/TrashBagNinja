@@ -116,6 +116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpExplosionPrefab: {fileID: 100000, guid: 3156817f64ec68948ad6bb26569b9ef5,
     type: 3}
+  powerUpSound: {fileID: 8300000, guid: d01cd893586d61147bad62b6f1884ab5, type: 3}
 --- !u!65 &6500000
 BoxCollider:
   m_ObjectHideFlags: 0
