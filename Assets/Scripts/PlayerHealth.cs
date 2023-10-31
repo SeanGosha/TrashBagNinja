@@ -11,8 +11,12 @@ public class PlayerHealth : MonoBehaviour
     //shield
     public bool shield = false;
     private bool shieldActive = false;
-    public Shader shieldShader;
+    public Shader outlineShader;
     public SkinnedMeshRenderer playerMesh;
+
+    //toxic
+    public bool toxic = false;
+    private bool toxicActive = false;
 
     //heart gameobjects
     public GameObject heart1;
@@ -28,6 +32,12 @@ public class PlayerHealth : MonoBehaviour
         {
             shield = false;
             StartCoroutine(ShieldEffect());
+        }
+
+        if (toxic && !toxicActive)
+        {
+            toxic = false;
+            StartCoroutine(ToxicEffect());
         }
     }
 
@@ -71,7 +81,7 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator ShieldEffect()
     {
         shieldActive = true;
-        playerMesh.material.shader = shieldShader;
+        playerMesh.material.shader = outlineShader;
         playerMesh.material.SetColor("_OutlineColor", new Color(195, 0, 143));
         yield return new WaitForSeconds(5.2f);
         int i = 0;
@@ -79,12 +89,31 @@ public class PlayerHealth : MonoBehaviour
         {
             playerMesh.material.shader = Shader.Find("Mobile/Diffuse");
             yield return new WaitForSeconds(.1f);
-            playerMesh.material.shader = shieldShader;
+            playerMesh.material.shader = outlineShader;
             yield return new WaitForSeconds(.1f);
             i++;
         }
         playerMesh.material.shader = Shader.Find("Mobile/Diffuse");
         shieldActive = false;
+    }
+
+        private IEnumerator ToxicEffect()
+    {
+        toxicActive = true;
+        playerMesh.material.shader = outlineShader;
+        playerMesh.material.SetColor("_OutlineColor", new Color(0, 255, 0));
+        int i = 0;
+        while (i < 4)
+        {
+            playerMesh.material.shader = Shader.Find("Mobile/Diffuse");
+            yield return new WaitForSeconds(.1f);
+            playerMesh.material.shader = outlineShader;
+            yield return new WaitForSeconds(.1f);
+            i++;
+        }
+        LoseHealth();
+        playerMesh.material.shader = Shader.Find("Mobile/Diffuse");
+        toxicActive = false;
     }
 
     private void GameOver()

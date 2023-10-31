@@ -30,5 +30,13 @@ public class PowerUpEffect : MonoBehaviour
                 other.gameObject.GetComponent<PlayerHealth>().shield = true;
             }
         }
+        else if(this.gameObject.name == "ToxicPowerUp(Clone)")
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                // set the toxic flag to true
+                other.gameObject.GetComponent<PlayerHealth>().toxic = true;
+            }
+        }
     }
 }

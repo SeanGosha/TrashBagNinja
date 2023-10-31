@@ -7146,8 +7146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shield: 0
-  shieldShader: {fileID: 4800000, guid: 472714a737f49cc47b4da36c86c01b2a, type: 3}
+  outlineShader: {fileID: 4800000, guid: 472714a737f49cc47b4da36c86c01b2a, type: 3}
   playerMesh: {fileID: 1683238692}
+  toxic: 0
   heart1: {fileID: 587415316}
   heart2: {fileID: 1616537812}
   heart3: {fileID: 1523093451}
@@ -7520,8 +7521,9 @@ MonoBehaviour:
   - {fileID: 100000, guid: de0eb6df55a465c4999f62841e7201f2, type: 3}
   - {fileID: 100000, guid: b4865d6974712d84ab1c88ac8d9dfe59, type: 3}
   - {fileID: 100000, guid: cd9ef2ad4937abe48b2f01917a40aa9c, type: 3}
+  - {fileID: 100000, guid: 5b48577db1641f343965bb2c0c4e8e7e, type: 3}
   countdown: {fileID: 98483808}
-  throwInterval: 18
+  throwInterval: 8
 --- !u!1 &1931154889
 GameObject:
   m_ObjectHideFlags: 0
