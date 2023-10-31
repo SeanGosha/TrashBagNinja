@@ -38,5 +38,13 @@ public class PowerUpEffect : MonoBehaviour
                 other.gameObject.GetComponent<PlayerHealth>().toxic = true;
             }
         }
+        else if(this.gameObject.name == "PlusOnePowerUp(Clone)")
+        {
+            if (other.gameObject.CompareTag("Player"))
+            {
+                // Add another player to the scene
+                other.gameObject.GetComponent<PlayerController>().plusOne = true;
+            }
+        }
     }
 }

@@ -23,8 +23,16 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool isAttacking = false; // Flag to track if the player is currently attacking
     public bool gameActive = false; // Flag to track if movement is enabled
+
+    // Powerups
     public bool speedBoost = false; // Flag to track if the player has a speed boost
     private bool speedBoostActive = false; // Flag to track if the speed boost is active
+    public bool plusOne = false; // Flag to track if the player has a plus one powerup
+    private bool plusOneActive = false; // Flag to track if the plus one powerup is active
+
+    public GameObject plusOnePrefab; // Reference to the plus one prefab
+
+
 
 
     // Score
@@ -35,7 +43,7 @@ public class PlayerController : MonoBehaviour
     public TrashBagThrower trashBagThrower; // Reference to the trash bag thrower
 
     private Animator animator;
-    public Shader speedShader; // Reference to the speed shader
+    public Shader outlineShader; // Reference to the outline shader
     public SkinnedMeshRenderer playerMesh; // Reference to the player mesh
 
 
@@ -66,6 +74,12 @@ public class PlayerController : MonoBehaviour
                     speedBoostActive = true;
                     StartCoroutine(SpeedBoost());
                 }
+            }
+
+            if(plusOne && !plusOneActive)
+            {
+                plusOneActive = true;
+                StartCoroutine(PlusOne());
             }
 
             // Keyboard input for testing
@@ -207,8 +221,9 @@ public class PlayerController : MonoBehaviour
         // Increase the transition duration
         transitionDuration *= 0.3f;
         // Set the speed shader
-        playerMesh.material.shader = speedShader;
+        playerMesh.material.shader = outlineShader;
         //Set shader _OutlineColor to yellow
+        playerMesh.material.SetColor("_MainColor", new Color(255, 255, 255));
         playerMesh.material.SetColor("_OutlineColor", new Color(255, 255, 0));
         // Wait for the duration
         yield return new WaitForSeconds(7.2f);
@@ -218,7 +233,7 @@ public class PlayerController : MonoBehaviour
         {
             playerMesh.material.shader = Shader.Find("Mobile/Diffuse");
             yield return new WaitForSeconds(.1f);
-            playerMesh.material.shader = speedShader;
+            playerMesh.material.shader = outlineShader;
             yield return new WaitForSeconds(.1f);
             i++;
         }
@@ -228,5 +243,35 @@ public class PlayerController : MonoBehaviour
         
         speedBoost = false;
         speedBoostActive = false;
+    }
+
+    private IEnumerator PlusOne()
+    {
+        // Spawn a plus one prefab
+        GameObject plusOneObject = Instantiate(plusOnePrefab, transform.position, Quaternion.identity);
+        //change shader to outline
+        playerMesh.material.shader = outlineShader;
+        //turn outline color to teal
+        playerMesh.material.SetColor("_OutlineColor", new Color(0, 255, 255));
+        // Set the parent to the player
+        plusOneObject.transform.SetParent(transform);
+        //set the postition 3 units to the right of the player by x position
+        plusOneObject.transform.position = new Vector3(transform.position.x + 3, transform.position.y, transform.position.z);
+        yield return new WaitForSeconds(7.2f);
+        // Reset the shader
+        int i = 0;
+        while(i < 4)
+        {
+            playerMesh.material.shader = Shader.Find("Mobile/Diffuse");
+            yield return new WaitForSeconds(.1f);
+            playerMesh.material.shader = outlineShader;
+            yield return new WaitForSeconds(.1f);
+            i++;
+        }
+        playerMesh.material.shader = Shader.Find("Mobile/Diffuse");
+        // Destroy the plus one object
+        Destroy(plusOneObject);
+        plusOne = false;
+        plusOneActive = false;
     }
 }
