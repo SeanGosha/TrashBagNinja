@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private bool speedBoostActive = false; // Flag to track if the speed boost is active
     public bool plusOne = false; // Flag to track if the player has a plus one powerup
     private bool plusOneActive = false; // Flag to track if the plus one powerup is active
+    private GameObject plusOneObject; // Reference to the plus one object
 
     public GameObject plusOnePrefab; // Reference to the plus one prefab
 
@@ -202,7 +203,11 @@ public class PlayerController : MonoBehaviour
             // Set the attacking flag to true
             isAttacking = true;
             // Add your attack logic here
-
+            if(plusOneActive)
+            {
+                plusOneObject.GetComponent<Animator>().SetBool("isAttacking", true);
+                plusOneObject.GetComponent<PlayerController>().isAttacking = true;
+            }
             // Reset the attack animation after a certain duration
             StartCoroutine(ResetAttackAnimation());
         }
@@ -212,6 +217,11 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(0.30f); // Adjust the duration as needed
         animator.SetBool("isAttacking", false);
+        if(plusOneActive)
+        {
+            plusOneObject.GetComponent<Animator>().SetBool("isAttacking", false);
+            plusOneObject.GetComponent<PlayerController>().isAttacking = false;
+        }
         isAttacking = false;
     }
 
@@ -248,7 +258,7 @@ public class PlayerController : MonoBehaviour
     private IEnumerator PlusOne()
     {
         // Spawn a plus one prefab
-        GameObject plusOneObject = Instantiate(plusOnePrefab, transform.position, Quaternion.identity);
+        plusOneObject = Instantiate(plusOnePrefab, transform.position, Quaternion.identity);
         //change shader to outline
         playerMesh.material.shader = outlineShader;
         //turn outline color to teal

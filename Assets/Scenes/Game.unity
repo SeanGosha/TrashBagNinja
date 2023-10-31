@@ -2973,7 +2973,7 @@ GameObject:
   - component: {fileID: 793913064}
   m_Layer: 5
   m_Name: Health
-  m_TagString: Untagged
+  m_TagString: Health
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8049,6 +8049,11 @@ PrefabInstance:
       propertyPath: gameOverScreen
       value: 
       objectReference: {fileID: 1127866165}
+    - target: {fileID: 5962936827271457945, guid: 9cdbb8a0e7749804893f727adbdc9769,
+        type: 3}
+      propertyPath: hearts.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5962936827271457951, guid: 9cdbb8a0e7749804893f727adbdc9769,
         type: 3}
       propertyPath: m_RootOrder

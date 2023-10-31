@@ -19,12 +19,39 @@ public class PlayerHealth : MonoBehaviour
     private bool toxicActive = false;
 
     //heart gameobjects
-    public GameObject heart1;
-    public GameObject heart2;
-    public GameObject heart3;
+    public GameObject[] hearts = new GameObject[3];
+    public GameObject heartContainer;
 
     //game over screen
     public GameObject gameOverScreen;
+
+    private void Start()
+    {
+        heartContainer = GameObject.FindWithTag("Health");
+
+        if (heartContainer != null)
+        {
+            foreach (Transform child in heartContainer.transform)
+            {
+                if (child.name == "Heart1")
+                {
+                    hearts[0] = child.gameObject;
+                }
+                else if (child.name == "Heart2")
+                {
+                    hearts[1] = child.gameObject;
+                }
+                else if (child.name == "Heart3")
+                {
+                    hearts[2] = child.gameObject;
+                }
+            }
+        }
+        else
+        {
+            Debug.LogError("Could not find an object with the 'Health' tag.");
+        }
+    }
 
     private void Update()
     {
@@ -48,15 +75,15 @@ public class PlayerHealth : MonoBehaviour
             health--;
             if (health == 2)
             {
-                heart3.SetActive(false);
+                hearts[2].SetActive(false);
             }
             else if (health == 1)
             {
-                heart2.SetActive(false);
+                hearts[1].SetActive(false);
             }
-            else if (health == 0 && heart1.activeSelf)
+            else if (health == 0 && hearts[0].activeSelf)
             {
-                heart1.SetActive(false);
+                hearts[0].SetActive(false);
                 Invoke("GameOver", 0.5f);
             }
         }
@@ -69,11 +96,11 @@ public class PlayerHealth : MonoBehaviour
             health++;
             if (health == 2)
             {
-                heart2.SetActive(true);
+                hearts[1].SetActive(true);
             }
             else if (health == 3)
             {
-                heart3.SetActive(true);
+                hearts[2].SetActive(true);
             }
         }
     }

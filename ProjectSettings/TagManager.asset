@@ -8,6 +8,8 @@ TagManager:
   - Trashbag
   - PowerUp
   - Environment
+  - FxTemporaire
+  - Health
   layers:
   - Default
   - TransparentFX

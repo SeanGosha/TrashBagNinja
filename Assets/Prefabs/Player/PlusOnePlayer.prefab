@@ -309,9 +309,11 @@ MonoBehaviour:
   outlineShader: {fileID: 4800000, guid: 472714a737f49cc47b4da36c86c01b2a, type: 3}
   playerMesh: {fileID: 1813348599201389620}
   toxic: 0
-  heart1: {fileID: 0}
-  heart2: {fileID: 0}
-  heart3: {fileID: 0}
+  hearts:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  heartContainer: {fileID: 0}
   gameOverScreen: {fileID: 0}
 --- !u!1 &1813348599392123792
 GameObject:
