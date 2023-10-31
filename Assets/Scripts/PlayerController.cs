@@ -88,11 +88,43 @@ public class PlayerController : MonoBehaviour
             // Keyboard input for testing
             if (Input.GetKeyDown(KeyCode.LeftArrow) && !isMoving)
             {
-                MoveToLane(currentLane - 1);
+                //MoveToLane(currentLane - 1);
+                //Subtract 1 from current lane unless both the plus one left flag is true and the current lane is 0
+                if(plusOneLeft)
+                {
+                    if(currentLane == 1)
+                    {
+                        //do nothing
+                    }
+                    else
+                    {
+                        MoveToLane(currentLane - 1);
+                    }
+                }
+                else
+                {
+                    MoveToLane(currentLane - 1);
+                }
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow) && !isMoving)
             {
-                MoveToLane(currentLane + 1);
+                //MoveToLane(currentLane + 1);
+                //Add 1 to current lane unless both the plus one right flag is true and the current lane is 3
+                if(plusOneRight)
+                {
+                    if(currentLane == 2)
+                    {
+                        //do nothing
+                    }
+                    else
+                    {
+                        MoveToLane(currentLane + 1);
+                    }
+                }
+                else
+                {
+                    MoveToLane(currentLane + 1);
+                }
             }
 
             // Swipe input for mobile
@@ -120,13 +152,39 @@ public class PlayerController : MonoBehaviour
                     {
                         if (fingerDownPos.x - fingerUpPos.x < 0)
                         {
-                            if(!plusOneRight && currentLane != 3)
-                            MoveToLane(currentLane + 1);
+                            if(plusOneRight)
+                            {
+                                if(currentLane == 2)
+                                {
+                                    //do nothing
+                                }
+                                else
+                                {
+                                    MoveToLane(currentLane + 1);
+                                }
+                            }
+                            else
+                            {
+                                MoveToLane(currentLane + 1);
+                            }
                         }
                         else
                         {
-                            if(!plusOneLeft && currentLane != 0)
-                            MoveToLane(currentLane - 1);
+                            if(plusOneLeft)
+                            {
+                                if(currentLane == 1)
+                                {
+                                    //do nothing
+                                }
+                                else
+                                {
+                                    MoveToLane(currentLane - 1);
+                                }
+                            }
+                            else
+                            {
+                                MoveToLane(currentLane - 1);
+                            }
                         }
                     }
                 }
