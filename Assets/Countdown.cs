@@ -22,6 +22,7 @@ public class Countdown : MonoBehaviour
 
     IEnumerator StartCountdown()
     {
+        countdownAudio.volume = 0.5f;
         while (countdownValue > 0)
         {
             countdownText.text = countdownValue.ToString();
@@ -30,6 +31,7 @@ public class Countdown : MonoBehaviour
             countdownValue--;
         }
 
+        countdownAudio.volume = 1f;
         countdownAudio.PlayOneShot(goSound);
         countdownText.text = "Go!";
         countDownDone = true;
