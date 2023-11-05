@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
 
     //sounds
     public AudioSource woosh;
+    public AudioSource swordWoosh;
 
 
 
@@ -265,6 +266,7 @@ public class PlayerController : MonoBehaviour
     {
         if(!isAttacking)
         {
+            swordWoosh.Play();
             // Play attack animation
             animator.SetBool("isAttacking", true);
             // Set the attacking flag to true

@@ -25,6 +25,9 @@ public class PlayerHealth : MonoBehaviour
     //game over screen
     public GameObject gameOverScreen;
 
+    //audio
+    public AudioSource lostHealthAudio;
+
     private void Start()
     {
         heartContainer = GameObject.FindWithTag("Health");
@@ -72,6 +75,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!shieldActive) // Check if the shield is not active
         {
+            lostHealthAudio.Play();
             health--;
             if (health == 2)
             {

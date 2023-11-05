@@ -10,6 +10,11 @@ public class Countdown : MonoBehaviour
     private int countdownValue = 5;
     public bool countDownDone = false;
 
+    public AudioSource countdownAudio;
+    public AudioClip shortBeep;
+    public AudioClip goSound;
+
+
     void Start()
     {
         StartCoroutine(StartCountdown());
@@ -20,10 +25,12 @@ public class Countdown : MonoBehaviour
         while (countdownValue > 0)
         {
             countdownText.text = countdownValue.ToString();
+            countdownAudio.PlayOneShot(shortBeep);
             yield return new WaitForSeconds(1f);
             countdownValue--;
         }
 
+        countdownAudio.PlayOneShot(goSound);
         countdownText.text = "Go!";
         countDownDone = true;
         yield return new WaitForSeconds(1f);
