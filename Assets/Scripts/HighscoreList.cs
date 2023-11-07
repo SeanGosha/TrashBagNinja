@@ -16,7 +16,6 @@ public class HighscoreList : MonoBehaviour
         SetHighScores();
         Debug.Log(PlayerPrefs.GetInt("Highscore1"));
         SetHighScoreTexts();
-        gameObject.SetActive(false);
     }
 
 

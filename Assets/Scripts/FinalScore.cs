@@ -22,32 +22,39 @@ public class FinalScore : MonoBehaviour
             {
                 if (scoreCounter.playerScore > PlayerPrefs.GetInt("Highscore" + i))
                 {
-                    // Store the current high score and replace it
-                    int temp = PlayerPrefs.GetInt("Highscore" + i);
-                    string date = System.DateTime.Now.ToString("MM/dd/yy");
-                    
-                    PlayerPrefs.SetInt("Highscore" + i, scoreCounter.playerScore);
-                    PlayerPrefs.SetString("HighscoreDate" + i, date);
+                    // Store the current high score and date
+                    int tempScore = PlayerPrefs.GetInt("Highscore" + i);
+                    string tempDate = PlayerPrefs.GetString("HighscoreDate" + i);
 
-                    // Move lower scores down
+                    // Replace the high score and date
+                    PlayerPrefs.SetInt("Highscore" + i, scoreCounter.playerScore);
+                    PlayerPrefs.SetString("HighscoreDate" + i, System.DateTime.Now.ToString("dd/MM/yy"));
+
+                    // Move lower scores and dates down
                     for (int j = i + 1; j <= 10; j++)
                     {
                         if (PlayerPrefs.HasKey("Highscore" + j))
                         {
-                            int nextTemp = PlayerPrefs.GetInt("Highscore" + j);
-                            PlayerPrefs.SetInt("Highscore" + j, temp);
-                            temp = nextTemp;
+                            int nextTempScore = PlayerPrefs.GetInt("Highscore" + j);
+                            string nextTempDate = PlayerPrefs.GetString("HighscoreDate" + j);
+
+                            PlayerPrefs.SetInt("Highscore" + j, tempScore);
+                            PlayerPrefs.SetString("HighscoreDate" + j, tempDate);
+
+                            tempScore = nextTempScore;
+                            tempDate = nextTempDate;
                         }
                     }
 
-                    break; // Break the loop after updating the score
+                    break; // Break the loop after updating the score and date
                 }
             }
             else
             {
-                // If a slot is empty, just add the new score
+                // If a slot is empty, just add the new score and date
                 PlayerPrefs.SetInt("Highscore" + i, scoreCounter.playerScore);
-                break; // Break the loop after adding the score
+                PlayerPrefs.SetString("HighscoreDate" + i, System.DateTime.Now.ToString("dd/MM/yy"));
+                break; // Break the loop after adding the score and date
             }
         }
     }
