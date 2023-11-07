@@ -2302,6 +2302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finalScoreText: {fileID: 624379507}
   scoreCounter: {fileID: 1509206162}
+  highScores: 
 --- !u!224 &624408316 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 224922517901313142, guid: 01d4530d5fc013041b75569e39f03a08,
@@ -4461,8 +4462,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: TRY AGAIN?
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 4c14f818e8df06a4d80fcc3420216fbe, type: 2}
-  m_sharedMaterial: {fileID: -349053564062564548, guid: 4c14f818e8df06a4d80fcc3420216fbe,
+  m_fontAsset: {fileID: 11400000, guid: e533fb7d647f28d43a33e75a6ec360e9, type: 2}
+  m_sharedMaterial: {fileID: -349053564062564548, guid: e533fb7d647f28d43a33e75a6ec360e9,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
