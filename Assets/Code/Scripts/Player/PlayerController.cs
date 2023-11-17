@@ -39,9 +39,6 @@ public class PlayerController : MonoBehaviour
     public AudioSource woosh;
     public AudioSource swordWoosh;
 
-
-
-
     // Score
     public int score = 0; // Player score
     public int totalTrashbags = 0; // Total bags thrown

@@ -15,8 +15,8 @@ public class DestroyTrashbag : MonoBehaviour
 
     private void Start()
     {
-        playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        playerHealth = GameObject.Find("Player").GetComponent<PlayerHealth>();
+        playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
+        playerHealth = GameObject.FindWithTag("Player").GetComponent<PlayerHealth>();
     }
 
     private void OnTriggerEnter(Collider other)
